@@ -32,8 +32,7 @@
     #define EXT 2
     #define FNC 3
     #define SYM2 4
-    #define ACCENT 5
-    #define MMO 6
+    #define MMO 5
 
 
 
@@ -49,15 +48,9 @@
 &mmv {
     acceleration-exponent=<1>;
 };
-/ {
 
-    behaviors {
-		/omit-if-no-ref/ tog: behavior_toggle_layer {
-			compatible = "zmk,behavior-toggle-layer";
-			label = "TOGGLE_LAYER";
-			#binding-cells = <1>;
-		};
-	};
+
+/ {
     
     combos {
         compatible = "zmk,combos";
