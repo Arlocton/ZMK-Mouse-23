@@ -54,7 +54,7 @@
         compatible = "zmk,combos";
         combo_MMO { 
             timeout-ms = <300>;
-            key-positions = <31 34>;
+            key-positions = <30 33>;
             bindings = <&tog MMO>;
                   };
             };
