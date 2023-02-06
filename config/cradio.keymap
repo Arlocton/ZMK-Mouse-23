@@ -55,7 +55,7 @@
     combos {
         compatible = "zmk,combos";
         combo_MMO { 
-            timeout-ms = <50>;
+            timeout-ms = <75>;
             key-positions = <30 33>;
             bindings = <&tog MMO>;
                   };
@@ -88,7 +88,7 @@ keymap {
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M  &mt MINUS COMMA &mt EXCL DOT &mt QMARK RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &none      &kp LSHIFT      &kp SPACE  &lt UTIL to 1
+                                            &none      &kp LSHIFT      &kp SPACE  &lt UTIL 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -105,7 +105,7 @@ keymap {
         //│ CAPS     │  7       │  8       │  9       │  0       │   │          │          │          │          │          │
            &caps_word  &kp N7     &kp N8     &kp N9     &kp N0         &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &to 0     &trans        &trans     &lt UTIL to 2
+                                             &to 0     &trans        &trans     &lt UTIL 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -122,7 +122,7 @@ keymap {
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
           &kp LSHIFT &mkp RCLK  &mwh SCROLL_UP &mwh SCROLL_DOWN &none &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RSHIFT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &to 0     &trans         &trans     &lt UTIL to 3
+                                             &to 0     &trans         &trans     &lt UTIL 3
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
