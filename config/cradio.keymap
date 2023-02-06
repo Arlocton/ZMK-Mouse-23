@@ -26,6 +26,8 @@
 #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
+#define MMO 6
+
 
 
 &mt {
@@ -43,10 +45,10 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_esc { 
+        combo_MMO { 
             timeout-ms = <50>;
-            key-positions = <21 22>;
-            bindings = <&kp ESC>;
+            key-positions = <31 34>;
+            bindings = <&tog MMO>;
                   };
             };
 
