@@ -61,7 +61,6 @@
     
     combos {
         compatible = "zmk,combos";
-	compatible: "zmk,behavior-toggle-layer"
         combo_MMO { 
             timeout-ms = <300>;
             key-positions = <30 33>;
