@@ -41,7 +41,6 @@
     acceleration-exponent=<1>;
 };
 
-/ {
 combos {
         compatible = "zmk,combos";
         combo_esc { 
@@ -49,7 +48,6 @@ combos {
             key-positions = <21 22>;
             bindings = <&kp ESC>;
         };
-   };
 / {
     behaviors {
         ht: hold_tap {
