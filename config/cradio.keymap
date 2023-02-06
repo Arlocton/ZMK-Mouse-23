@@ -83,7 +83,7 @@
      &trans &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &trans   &trans    &kp LC(LS(TAB))   &kp TAB &kp LG(LBKT) &trans 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
-         &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans &mkp LCLK  &mkp RCLK &hm RCTL RIGHT &kp BKSP  
+         &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans &mkp LCLK  &mkp RCLK &mt RCTL RIGHT &kp BKSP  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
           &kp LSHIFT &mkp RCLK  &mwh SCROLL_UP &mwh SCROLL_DOWN &to 0 &kp RGUI &td HOME PG_DN  &td END PG_UP  &trans &kp RSHIFT
