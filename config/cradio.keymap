@@ -114,7 +114,7 @@
          &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none &none &mkp LCLK  &mkp RCLK &mt RCTL RIGHT &kp BKSP  
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-          &kp LSHIFT &mkp RCLK  &mwh SCROLL_UP &mwh SCROLL_DOWN &none &kp RGUI &kp LALT(LEFT)  &kp LALT(RIGHT)  &none &kp RSHIFT
+          &kp LSHIFT &mkp RCLK  &mwh SCROLL_UP &mwh SCROLL_DOWN &none &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RSHIFT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &to 0     &trans         &trans     &to 3
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
