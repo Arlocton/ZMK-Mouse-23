@@ -12,6 +12,14 @@
     tapping_term_ms = <250>;
 };
 
+&mwh {
+    acceleration-exponent=<1>;
+};
+
+&mmv {
+    acceleration-exponent=<1>;
+};
+
 
 / {
     behaviors {
