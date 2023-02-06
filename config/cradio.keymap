@@ -49,6 +49,7 @@ combos {
             key-positions = <21 22>;
             bindings = <&kp ESC>;
         };
+   }
 / {
     behaviors {
         ht: hold_tap {
