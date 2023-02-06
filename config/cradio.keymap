@@ -26,7 +26,14 @@
 #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-#define MMO 6
+// Layer definitions
+    #define BASE 0
+    #define SYM 1
+    #define EXT 2
+    #define FNC 3
+    #define SYM2 4
+    #define ACCENT 5
+    #define MMO 6
 
 
 
@@ -46,9 +53,9 @@
     combos {
         compatible = "zmk,combos";
         combo_MMO { 
-            timeout-ms = <75>;
+            timeout-ms = <300>;
             key-positions = <31 34>;
-            bindings = <&tog 6>;
+            bindings = <&tog MMO>;
                   };
             };
 
