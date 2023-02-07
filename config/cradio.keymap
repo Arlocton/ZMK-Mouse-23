@@ -141,7 +141,7 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
-     &trans &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none   &none    &kp LC(LS(TAB))   &kp LC(TAB) &kp LA(TAB) &kp LS(LGUI(S)) 
+     &trans &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none   &none    &kp LC(LS(TAB))   &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
          &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none &none &mkp LCLK  &mkp RCLK &mt RCTL RIGHT &kp BKSP  
