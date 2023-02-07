@@ -59,6 +59,12 @@
             key-positions = <30 33>;
             bindings = <&tog MMO>;
                   };
+                  
+         combo_BLUE { 
+            timeout-ms = <100>;
+            key-positions = <31 32>;
+            bindings = <&tog BLUE>;
+                  };
             };
            
         bl: layertap {
@@ -135,7 +141,7 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
-     &trans &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none   &none    &kp LC(LS(TAB))   &kp LC(TAB) &none  &none 
+     &trans &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none   &none    &kp LC(LS(TAB))   &kp LC(TAB) &kp LA(TAB) &kp LS(LGUI(S)) 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
          &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none &none &mkp LCLK  &mkp RCLK &mt RCTL RIGHT &kp BKSP  
@@ -143,7 +149,7 @@ keymap {
         //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
           &kp LSHIFT &mkp RCLK  &mwh SCROLL_UP &mwh SCROLL_DOWN &none &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RSHIFT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &to 0     &trans         &trans     &moto UTIL 4
+                                             &to 0     &kp LALT       &trans     &moto UTIL 0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -177,7 +183,7 @@ keymap {
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
             &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &none     &none         &none     &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
