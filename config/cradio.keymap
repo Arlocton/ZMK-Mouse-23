@@ -42,6 +42,11 @@
     tapping_term_ms = <250>;
 };
 
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
+};
+
 &mwh {
     acceleration-exponent=<1>;
 };
@@ -67,15 +72,6 @@
                   };
             };
            
-        bl: layertap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYERTAP";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&to>, <&kp>;
-        };
         
     behaviors {
         moto: behavior_moto {
@@ -115,7 +111,7 @@ keymap {
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M  &mt MINUS COMMA &mt EXCL DOT &mt QMARK RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &none      &kp LSHIFT      &kp SPACE  &moto UTIL 1
+                                            &none      &sk LSHIFT      &kp SPACE  &moto UTIL 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -161,10 +157,10 @@ keymap {
             &none     &kp C_PREV  &kp C_PP   &kp C_NEXT &none           &trans     &trans     &trans      &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-             &none    &none &kp C_VOL_DN &kp C_VOL_UP  &none           &trans     &trans     &trans      &trans     &trans
+             &none    &none &kp C_VOL_DN &kp C_VOL_UP  &kp C_MUTE       &trans     &trans     &trans      &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &none      &none       &none     &none      &none           &trans     &trans     &trans     &trans     &trans
+            &none      &none       &kp C_RW  &kp C_FF   &none           &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &none     &trans         &trans     &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -195,10 +191,10 @@ keymap {
            &mt ESC TAB  &kp Q      &kp W      &kp E      &kp R          &none   &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   Shift  │   A      │    S     │    D     │    F     │   │    ?     │  mm Left │  mm Down │ mm Right │    ?     │
-           &kp LSHIFT  &kp A      &kp S      &kp D      &kp F           &none    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none 
+           &sk LSHIFT  &kp A      &kp S      &kp D      &kp F           &none    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Control │   Z      │     X    │    C     │ L & R clk│   │  ALT     │    ?     │  scr up  │  scr dn  │     ?    │
-           &kp LCTL    &kp Z     &kp X      &kp C      &DBCLK RCLK LCLK &kp RALT &mwh SCROLL_UP &mwh SCROLL_DOWN &none &none 
+           &sk LCTL    &kp Z     &kp X      &kp C      &DBCLK RCLK LCLK &kp RALT &mwh SCROLL_UP &mwh SCROLL_DOWN &none &none 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &mo 6    &kp SPACE     &none       &none   
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
