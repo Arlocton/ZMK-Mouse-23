@@ -72,7 +72,7 @@
         };
         
     behaviors {
-        mo_to: behavior_mo_to {
+        moto: behavior_moto {
             compatible = "zmk,behavior-hold-tap";
             label = "moto";
             #binding-cells = <2>;
