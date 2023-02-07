@@ -194,7 +194,7 @@ keymap {
            &sk LSHIFT  &kp A      &kp S      &kp D      &kp F           &none    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Control │   Z      │     X    │    C     │ L & R clk│   │  ALT     │    ?     │  scr up  │  scr dn  │     ?    │
-           &sk LCTL    &kp Z     &kp X      &kp C      &DBCLK RCLK LCLK &kp RALT &mwh SCROLL_UP &mwh SCROLL_DOWN &none &none 
+           &sk LCTL    &kp Z     &kp X   &DBCLK RCLK LCLK  &kp C      &kp RALT &mwh SCROLL_UP &mwh SCROLL_DOWN &none &none 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &mo 6    &kp SPACE     &none       &none   
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -211,7 +211,7 @@ keymap {
               &trans   &trans     &trans      &trans     &trans           &none    &kp N4     &kp N5     &kp N6      &none                                                            
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │     1    │     2    │    3     │          │
-              &trans    &trans     &trans     &trans     &trans         &none      &kp N1    &kp N2     &kp N3      &none                                                              
+              &trans    &trans     &trans     &trans     &trans         &kp N0      &kp N1    &kp N2     &kp N3      &none                                                              
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                             &none      &trans          &none       &none                   
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
