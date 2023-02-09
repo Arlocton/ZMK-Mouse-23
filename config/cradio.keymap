@@ -120,10 +120,42 @@ DBCLK: behavior_DBCLK {
             flavor = "tap-preferred";
             bindings = <&mkp>, <&mkp>;
         };
+	
+// These behaviors are the mod-morphs that should allow me different mouse speeds depending on if shift is being applied.
+mmvup: Variable_Mouse_Move_Up {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Variable_Mouse_Move_Up";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_UP>, <&mmv MOVE_UP2>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+	
+mmvdn: Variable_Mouse_Move_Down {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Variable_Mouse_Move_Down";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_DOWN2>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+	
+mmvlft: Variable_Mouse_Move_Left {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Variable_Mouse_Move_Left";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_LEFT>, <&mmv MOVE_LEFT2>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+	
+mmvrgt: Variable_Mouse_Move_Right {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Variable_Mouse_Move_Right";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_RIGHT>, <&mmv MOVE_RIGHT2>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
               
    };
     
-
 
 
 /* Useful templates and references
@@ -179,7 +211,7 @@ keymap {
             &kp A      &kp S      &kp D     &mt LGUI F &kp G          &kp H      &kp J      &kp K      &mt COLON L &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , (-)    │ . (!)    │  Enter (?)
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M  &mt MINUS COMMA &mt EXCL DOT &mt QMARK RET
+            &kp Z      &kp X      &kp C      &kp V      &kp B         &kp N     &kp M &mt MINUS COMMA &mt EXCL DOT &mt QMARK RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                             &none      &sk LSHIFT      &kp SPACE  &moto UTIL 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -207,15 +239,15 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-       &none &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none    &none &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
+       &none &mwh SCROLL_LEFT &mmvup &mwh SCROLL_RIGHT &none         &none &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-        &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none     &none    &mkp LCLK &mkp RCLK &mt RCTL RIGHT &kp BKSP
+          &kp TAB    &mmvlft    &mmvdn     &mmvrgt    &none           &none    &mkp LCLK    &mkp RCLK  &none      &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
          &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &none  &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RSHIFT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &to 0     &kp LALT       &trans     &moto UTIL 0
+                                             &to 0     &kp LALT       &kp LSHIFT &moto UTIL 0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
