@@ -70,7 +70,6 @@
             key-positions = <31 32>;
             bindings = <&tog BLUE>;
                   };
-            };
             
          combo_HOME { 
             timeout-ms = <50>;
@@ -139,7 +138,7 @@ keymap {
           &mt EXCL N1  &mt AT N2  &mt HASH N3  &mt DOLLAR N4 &mt PERCENT N5	&mt CARET N6 &mt AMPERSAND N7 &mt ASTERISK N8 &mt LPAR N9 &mt RPAR N0   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ;       │
-          &kp TABs  &kp CAPS  &mt UNDER MINUS  &mt LGUI DEL  &mt PLUS EQUAL &mt PIPE BACKSLASH &mt LBRC LBKT &mt RBRC RBKT &mt COLON SEMI  &kp BKSP 
+          &kp TAB  &kp CAPS  &mt UNDER MINUS  &mt LGUI DEL  &mt PLUS EQUAL &mt PIPE BACKSLASH &mt LBRC LBKT &mt RBRC RBKT &mt COLON SEMI  &kp BKSP 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ CAPS     │  7       │  8       │  9       │  0       │   │          │          │          │          │          │
          &mt TILDE GRAVE    &kp TILDE 	&kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2 &kp MINUS &kp LALT &kp LESS_THAN &mt GREATER_THAN DQT  &mt QMARK SLASH   
