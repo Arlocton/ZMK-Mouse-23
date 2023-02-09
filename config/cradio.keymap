@@ -1,12 +1,14 @@
 // Copyright (c) 2022 The ZMK Contributors
 // SPDX-License-Identifier: MIT
 
+// required dependencies, needs to be checked when adding something new
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 
+// redefining the move speed of the mouse emulation so the default is high
 #define U_MOUSE_MOVE_MAX 1400
 #undef MOVE_UP
 #undef MOVE_DOWN
@@ -17,6 +19,7 @@
 #define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
 #define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
 
+// redefining the scroll speed to be higher
 #define U_MOUSE_SCROLL_MAX 100 
 #undef SCROLL_UP
 #undef SCROLL_DOWN
@@ -27,16 +30,24 @@
 #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-// Layer definitions
-    #define BASE 0
-    #define NUM 1
-    #define MOUSE 2
-    #define UTIL 3
-    #define BLUE 4
-    #define MMO 5
-    #define MMO_NUM 6
+// setting a custom second speed for mouse movement
+#define U_MOUSE_MOVE_MAX2 100
+#define MOVE_UP2 MOVE_VERT(-U_MOUSE_MOVE_MAX2)
+#define MOVE_DOWN2 MOVE_VERT(U_MOUSE_MOVE_MAX2)
+#define MOVE_LEFT2 MOVE_HOR(-U_MOUSE_MOVE_MAX2)
+#define MOVE_RIGHT2 MOVE_HOR(U_MOUSE_MOVE_MAX2)
+
+// Naming layers to keep things straight and organized
+#define BASE 0
+#define NUM 1
+#define MOUSE 2
+#define UTIL 3
+#define BLUE 4
+#define MMO 5
+#define MMO_NUM 6
 
 
+// this section is adjusting included behaviors
 
 &mt {
     flavor = "tap-preferred";
@@ -56,32 +67,39 @@
     acceleration-exponent=<1>;
 };
 
+// This section is for custom combos
 / {
-    
     combos {
         compatible = "zmk,combos";
+	
+//combo to reach the MMO layer from any other layer, activating it a second time returns you to the lower layers
         combo_MMO { 
             timeout-ms = <50>;
             key-positions = <30 33>;
             bindings = <&tog MMO>;
                   };
-                  
+
+// Combo to reach BLUE layer for connection settings and bluetooth profiles (also for forcing BLE instead of USB and vice versa) toggles just like MMO
          combo_BLUE { 
             timeout-ms = <50>;
             key-positions = <31 32>;
             bindings = <&tog BLUE>;
                   };
-            
+		  
+// This is the "bail-out" combo if you're ever lost, this will take you back to the base layer
          combo_HOME { 
             timeout-ms = <50>;
             key-positions = <30 31>;
             bindings = <&to 0>;
                   };
-            };
+            
+	    };
                       
-        
-    behaviors {
-        moto: behavior_moto {
+// This is where custom behaviors can be defined        
+behaviors {
+
+// This behavior lets me have a layer on holding a key, or move to another layer on tap.
+moto: behavior_moto {
             compatible = "zmk,behavior-hold-tap";
             label = "moto";
             #binding-cells = <2>;
@@ -90,25 +108,18 @@
             bindings = <&mo>, <&to>;
         };
         
-        DBCLK: behavior_DBCLK {
-                compatible = "zmk,behavior-hold-tap";
-                label = "DBCLK";
-                #binding-cells = <2>;
-                tapping-term-ms = <250>;
-                quick-tap-ms = <150>;
-                flavor = "tap-preferred";
-                bindings = <&mkp>, <&mkp>;
-              };
+// This behavior lets me use both left and right click on the same key, tap for left hold for right.	
+DBCLK: behavior_DBCLK {
+            compatible = "zmk,behavior-hold-tap";
+            label = "DBCLK";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&mkp>, <&mkp>;
+        };
               
-   		 mmv2: behavior_mouse_move2 {
-			compatible = "zmk,behavior-mouse-move";
-			label = "MOUSE_MOVE2";
-			#binding-cells = <1>;
-			delay-ms = <0>;
-			time-to-max-speed-ms = <300>;
-			acceleration-exponent = <1>;
-		}; 
-    };
+   };
     
 
 keymap {
