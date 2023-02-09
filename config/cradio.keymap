@@ -71,6 +71,13 @@
             bindings = <&tog BLUE>;
                   };
             };
+            
+         combo_HOME { 
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+            bindings = <&to 0>;
+                  };
+            };
            
         
     behaviors {
@@ -123,10 +130,10 @@ keymap {
           &mt EXCL N1  &mt AT N2  &mt HASH N3  &mt DOLLAR N4 &mt PERCENT N5	&mt CARET N6 &mt AMPERSAND N7 &mt ASTERISK N8 &mt LPAR N9 &mt RPAR N0   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ;       │
-          &kp TAB  &kp CAPS  &mt UNDER MINUS  &mt LGUI DEL  &mt PLUS EQUAL &mt PIPE BACKSLASH &mt LBRC LBKT &mt RBRC RBKT &mt COLON SEMI  &kp BKSP 
+          &kp TABs  &kp CAPS  &mt UNDER MINUS  &mt LGUI DEL  &mt PLUS EQUAL &mt PIPE BACKSLASH &mt LBRC LBKT &mt RBRC RBKT &mt COLON SEMI  &kp BKSP 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ CAPS     │  7       │  8       │  9       │  0       │   │          │          │          │          │          │
-         &mt TILDE GRAVE    &kp TILDE 	&kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2 	&kp MINUS &kp LALT &kp LESS_THAN &mt GREATER_THAN DQT  &mt QMARK SLASH   
+         &mt TILDE GRAVE    &kp TILDE 	&kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2 &kp MINUS &kp LALT &kp LESS_THAN &mt GREATER_THAN DQT  &mt QMARK SLASH   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &to 0     &trans        &trans     &moto UTIL 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -137,7 +144,7 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
-     &trans &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none   &none    &kp LC(LS(TAB))   &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
+     &none &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none   &none    &kp LC(LS(TAB))   &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
          &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none &none &mkp LCLK  &mkp RCLK &mt RCTL RIGHT &kp BKSP  
@@ -171,13 +178,13 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-            &reset     &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans      &reset
+            &reset     &none      &none      &none     &bt BT_SEL 0   &out OUT_USB &none      &none      &none       &reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader
+          &bootloader  &none      &none      &none     &bt BT_SEL 1   &out OUT_BLE &none      &none      &none    &bootloader
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans
+            &none      &none      &none     &bt BT_CLR &bt BT_SEL 2    &none      &none      &none      &none      &none 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &none     &none         &none     &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
