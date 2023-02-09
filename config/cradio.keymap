@@ -78,7 +78,7 @@
             bindings = <&to 0>;
                   };
             };
-           
+                      
         
     behaviors {
         moto: behavior_moto {
@@ -99,6 +99,15 @@
                 flavor = "tap-preferred";
                 bindings = <&mkp>, <&mkp>;
               };
+              
+   		 mmv2: behavior_mouse_move2 {
+			compatible = "zmk,behavior-mouse-move";
+			label = "MOUSE_MOVE2";
+			#binding-cells = <1>;
+			delay-ms = <0>;
+			time-to-max-speed-ms = <300>;
+			acceleration-exponent = <1>;
+		}; 
     };
     
 
