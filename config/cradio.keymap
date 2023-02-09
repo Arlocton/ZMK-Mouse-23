@@ -84,7 +84,7 @@
          combo_BLUE { 
             timeout-ms = <50>;
             key-positions = <31 32>;
-	    layers = <0>
+	    layers = <0>;
             bindings = <&tog BLUE>;
                   };
 		  
