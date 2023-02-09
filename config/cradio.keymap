@@ -1,14 +1,14 @@
 // Copyright (c) 2022 The ZMK Contributors
 // SPDX-License-Identifier: MIT
 
-// required dependencies, needs to be checked when adding something new
+// Required dependencies, needs to be checked when adding something new
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 
-// redefining the move speed of the mouse emulation so the default is high
+// Re-defining the move speed of the mouse emulation so the default is high
 #define U_MOUSE_MOVE_MAX 1400
 #undef MOVE_UP
 #undef MOVE_DOWN
@@ -19,7 +19,7 @@
 #define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
 #define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
 
-// redefining the scroll speed to be higher
+// Re-defining the scroll speed to be higher
 #define U_MOUSE_SCROLL_MAX 100 
 #undef SCROLL_UP
 #undef SCROLL_DOWN
@@ -30,7 +30,7 @@
 #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-// setting a custom second speed for mouse movement
+// Setting a custom second speed for mouse movement
 #define U_MOUSE_MOVE_MAX2 100
 #define MOVE_UP2 MOVE_VERT(-U_MOUSE_MOVE_MAX2)
 #define MOVE_DOWN2 MOVE_VERT(U_MOUSE_MOVE_MAX2)
@@ -47,7 +47,7 @@
 #define MMO_NUM 6
 
 
-// this section is adjusting included behaviors
+// This section is adjusting included behaviors and declaring optional parameters
 
 &mt {
     flavor = "tap-preferred";
@@ -123,6 +123,47 @@ DBCLK: behavior_DBCLK {
               
    };
     
+
+
+
+/* Useful templates and references
+blank template {
+    bindings = <
+//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+//│          │          │          │          │          │   │          │          │          │          │          │
+                                                                                                                             
+//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+//│          │          │          │          │          │   │          │          │          │          │          │
+                                                                                                                             
+//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+//│          │          │          │          │          │   │          │          │          │          │          │
+                                                                                                                             
+//╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                                                                           
+//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+		
+number reference {
+    bindings = <
+//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+//│     0    │    1     │    2     │    3     │    4     │   │    5     │    6     │    7     │    8     │     9    │
+                                                                                                                             
+//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+//│    10    │   11     │    12    │    13    │    14    │   │    15    │    16    │    17    │    18    │    19    │
+                                                                                                                            
+//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+//│    20    │   21     │    22    │    23    │    24    │   │    25    │    26    │    27    │    28    │    29    │
+                                                                                                                          
+ //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                        30         31             32         33    
+ //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+*/
+
+// The actual keymap starts here
 
 keymap {
         
