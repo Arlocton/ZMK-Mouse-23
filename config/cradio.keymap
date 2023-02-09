@@ -80,9 +80,11 @@
                   };
 
 // Combo to reach BLUE layer for connection settings and bluetooth profiles (also for forcing BLE instead of USB and vice versa) toggles just like MMO
+// Also set it so this combo should only work from base layer, so bail-out then BLUE.
          combo_BLUE { 
             timeout-ms = <50>;
             key-positions = <31 32>;
+	    layers = <0>
             bindings = <&tog BLUE>;
                   };
 		  
@@ -129,13 +131,13 @@ keymap {
         default_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
+        //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P (')   │
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &mt APOS P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ' "      │
+        //│  A       │  S       │  D       │  F (LGUI)│  G       │   │  H       │  J       │  K       │  L (:)   │ Backspace│
             &kp A      &kp S      &kp D     &mt LGUI F &kp G          &kp H      &kp J      &kp K      &mt COLON L &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , (-)    │ . (!)    │  Enter (?)
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M  &mt MINUS COMMA &mt EXCL DOT &mt QMARK RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                             &none      &sk LSHIFT      &kp SPACE  &moto UTIL 1
@@ -146,8 +148,8 @@ keymap {
         Number_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ INSERT   │  1       │  2       │  3       │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  :       │
-          &mt EXCL N1  &mt AT N2  &mt HASH N3  &mt DOLLAR N4 &mt PERCENT N5	&mt CARET N6 &mt AMPERSAND N7 &mt ASTERISK N8 &mt LPAR N9 &mt RPAR N0   
+        //│ 1 (!)    │  2 (@)   │  3 (#)   │  4 ($)   │  5 (%)   │   │  6 (^)   │   7 (&)  │   8 (*)  │ 9 "("    │  0 ")"   │
+         &mt EXCL N1 &mt AT N2  &mt HASH N3 &mt DLLR N4 &mt PRCNT N5 &mt CARET N6 &mt AMPS N7 &mt STAR N8 &mt LPAR N9 &mt RPAR N0   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ;       │
           &kp TAB  &kp CAPS  &mt UNDER MINUS  &mt LGUI DEL  &mt PLUS EQUAL &mt PIPE BACKSLASH &mt LBRC LBKT &mt RBRC RBKT &mt COLON SEMI  &kp BKSP 
@@ -163,14 +165,14 @@ keymap {
         Mouse_Layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
-     &none &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none   &none    &kp LC(LS(TAB))   &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
+        //│          │          │          │          │          │   │          │          │          │          │          │
+       &none &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none    &none &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
-         &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none &none &mkp LCLK  &mkp RCLK &mt RCTL RIGHT &kp BKSP  
+        //│          │          │          │          │          │   │          │          │          │          │          │
+        &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none     &none    &mkp LCLK &mkp RCLK &mt RCTL RIGHT &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-          &kp LSHIFT &mkp RCLK  &mwh SCROLL_UP &mwh SCROLL_DOWN &none &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RSHIFT
+        //│          │          │          │          │          │   │          │          │          │          │          │
+         &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &none  &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RSHIFT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &to 0     &kp LALT       &trans     &moto UTIL 0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -180,13 +182,13 @@ keymap {
         Util_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
+        //│          │          │          │          │          |   │          │          │          │          │          |
             &none     &kp C_PREV  &kp C_PP   &kp C_NEXT &none           &trans     &trans     &trans      &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
+        //│          │          │          │          │          │   │          │          │          │          │          │
              &none    &none &kp C_VOL_DN &kp C_VOL_UP  &kp C_MUTE       &trans     &trans     &trans      &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
+        //│          │          │          │          │          │   │          │          │          │          │          │
             &none      &none       &kp C_RW  &kp C_FF   &none           &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &none     &trans         &trans     &none
@@ -197,10 +199,10 @@ keymap {
          Bluetooth {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
+        //│ RESET    │          │          │          │PROFILE 0 │   │Force USB │          │          │          │  RESET   │
             &reset     &none      &none      &none     &bt BT_SEL 0   &out OUT_USB &none      &none      &none       &reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
+        //│BOOTLOADER│          │          │          │PROFILE 1 │   │Force BLE │          │          │          │BOOTLOADER│
           &bootloader  &none      &none      &none     &bt BT_SEL 1   &out OUT_BLE &none      &none      &none    &bootloader
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
@@ -220,7 +222,7 @@ keymap {
         //│   Shift  │   A      │    S     │    D     │    F     │   │    ?     │  mm Left │  mm Down │ mm Right │    ?     │
            &sk LSHIFT  &kp A      &kp S      &kp D      &kp F           &none    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Control │   Z      │     X    │    C     │ L & R clk│   │  ALT     │    ?     │  scr up  │  scr dn  │     ?    │
+        //│  Control │   Z      │     X    │L & R clk │    C     │   │  ALT     │    ?     │  scr up  │  scr dn  │     ?    │
            &sk LCTL    &kp Z     &kp X   &DBCLK RCLK LCLK  &kp C      &kp RALT &mwh SCROLL_UP &mwh SCROLL_DOWN &none &none 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &mo 6    &kp SPACE     &none       &none   
