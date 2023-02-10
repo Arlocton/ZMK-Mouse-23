@@ -283,7 +283,7 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans      &trans     &trans        &kp LC(T)     &kp F5      &kp UP      &kp LC(LALT(TAB))      &none      
+            &trans     &trans     &trans      &trans     &trans        &kp LC(T)     &kp F5      &kp UP      &kp LC(LA(TAB))      &none      
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans      &trans     &trans       &kp LC(W)       &kp LEFT   &kp DOWN  &kp RIGHT   &kp BSPC      
