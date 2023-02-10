@@ -91,7 +91,7 @@
 		  
 // This is the "bail-out" combo if you're ever lost, this will take you back to the base layer
          combo_HOME { 
-            timeout-ms = <60>;
+            timeout-ms = <75>
             key-positions = <30 31>;
             bindings = <&to 0>;
                   };
@@ -154,6 +154,14 @@ mmvrgt: Variable_Mouse_Move_Right {
             bindings = <&mmv MOVE_RIGHT>, <&mmv MOVE_RIGHT2>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+	
+cshift: caps_shift {
+            compatible = "zmk,behavior-tap-dance";
+            label = "caps_shift";
+            #binding-cells = <0>;
+            tapping-term-ms = <100>;
+            bindings = <&sk LSHIFT>, <&kp CAPS>,
+        };
               
    };
     
@@ -214,7 +222,7 @@ keymap {
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , (-)    │ . (!)    │  Enter (?)
             &kp Z      &kp X      &kp C      &kp V      &kp B         &kp N     &kp M &mt MINUS COMMA &mt EXCL DOT &mt QMARK RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                       &moto SHRT BASE &sk LSHIFT      &kp SPACE  &moto UTIL NUM
+                                       &moto SHRT BASE &td cshift      &kp SPACE  &moto UTIL NUM
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -229,7 +237,7 @@ keymap {
           &kp TAB  &kp CAPS  &mt UNDER MINUS  &mt LGUI DEL  &mt PLUS EQUAL &mt PIPE BACKSLASH &mt LBRC LBKT &mt RBRC RBKT &mt COLON SEMI  &kp BKSP 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-         &mt TILDE GRAVE    &kp TILDE 	&kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2 &kp MINUS &kp LALT &kp LESS_THAN &mt GREATER_THAN DQT  &mt QMARK SLASH   
+         &mt TILDE GRAVE    &kp TILDE 	&kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2 &kp MINUS &kp LALT &kp LESS_THAN &mt GREATER_THAN DQT  &mt QMARK RET   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                           &moto SHRT BASE &trans        &trans   &moto UTIL MOUSE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -246,7 +254,7 @@ keymap {
           &kp TAB    &mmvlft    &mmvdn     &mmvrgt    &none           &none    &mkp LCLK    &mkp RCLK  &none      &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-         &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &none  &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RSHIFT
+         &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &none  &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                          &moto SHRT BASE &kp LALT     &kp LSHIFT &moto UTIL BASE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
