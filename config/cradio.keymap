@@ -280,7 +280,7 @@ keymap {
             &trans     &trans     &trans      &trans     &trans       &none       &kp LEFT   &kp DOWN  &kp RIGHT   &kp BSPC      
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans      &trans     &trans       &none      &none      &none      &none      &kp return      
+            &trans     &trans     &trans      &trans     &trans       &none      &none      &none      &none      &kp RET      
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                               &none      &none         &none     &none                           
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
