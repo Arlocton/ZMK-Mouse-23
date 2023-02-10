@@ -274,7 +274,7 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans      &trans     &trans        &none      &kp f5      &kp UP      &none      &none      
+            &trans     &trans     &trans      &trans     &trans        &none      &kp F5      &kp UP      &none      &none      
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
             &trans     &trans     &trans      &trans     &trans       &none       &kp LEFT   &kp DOWN  &kp RIGHT   &kp backspace      
