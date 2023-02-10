@@ -91,7 +91,7 @@
 		  
 // This is the "bail-out" combo if you're ever lost, this will take you back to the base layer
          combo_HOME { 
-            timeout-ms = <75>
+            timeout-ms = <75>;
             key-positions = <30 31>;
             bindings = <&to 0>;
                   };
@@ -154,7 +154,8 @@ mmvrgt: Variable_Mouse_Move_Right {
             bindings = <&mmv MOVE_RIGHT>, <&mmv MOVE_RIGHT2>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-	
+
+// This is the tap-dance behavior that lets me double tap shift to get a caps-lock effect
 cshift: caps_shift {
             compatible = "zmk,behavior-tap-dance";
             label = "caps_shift";
@@ -222,7 +223,7 @@ keymap {
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , (-)    │ . (!)    │  Enter (?)
             &kp Z      &kp X      &kp C      &kp V      &kp B         &kp N     &kp M &mt MINUS COMMA &mt EXCL DOT &mt QMARK RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                       &moto SHRT BASE &td cshift      &kp SPACE  &moto UTIL NUM
+                                       &moto SHRT BASE &cshift      &kp SPACE  &moto UTIL NUM
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
