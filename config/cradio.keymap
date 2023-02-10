@@ -161,7 +161,7 @@ cshift: caps_shift {
             label = "caps_shift";
             #binding-cells = <0>;
             tapping-term-ms = <100>;
-            bindings = <&sk LSHIFT>, <&kp CAPS>;
+            bindings = <&kp LSHIFT>, <&kp CAPS>;
         };
               
    };
@@ -255,7 +255,7 @@ keymap {
           &kp TAB    &mmvlft    &mmvdn     &mmvrgt    &none           &none    &mkp LCLK    &mkp RCLK  &none      &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-         &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &none  &kp RGUI &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RET
+         &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &none  &none     &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                          &moto SHRT BASE &kp LALT     &kp LSHIFT &moto UTIL BASE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -283,15 +283,15 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans      &trans     &trans        &none      &kp F5      &kp UP      &none      &none      
+            &trans     &trans     &trans      &trans     &trans        &kp LC(T)     &kp F5      &kp UP      &kp LC(LALT(TAB))      &none      
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans      &trans     &trans       &none       &kp LEFT   &kp DOWN  &kp RIGHT   &kp BSPC      
+            &trans     &trans     &trans      &trans     &trans       &kp LC(W)       &kp LEFT   &kp DOWN  &kp RIGHT   &kp BSPC      
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans      &trans     &trans       &none      &none      &none      &none      &kp RET      
+            &trans     &trans     &trans      &trans     &trans       &kp LC(LS(T))      &none      &none      &none      &kp RET      
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                              &none      &none         &none     &none                           
+                                              &none      &none         &kp SPACE     &none                           
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -317,10 +317,10 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ESC/TAB  │   Q      │    W     │    E     │   R      │   │    ?     │ Scr Left │  mm Up   │Scr Right │    ?     │
-           &mt ESC TAB  &kp Q      &kp W      &kp E      &kp R          &none   &mwh SCROLL_LEFT &mmv MOVE_UP &mwh SCROLL_RIGHT &none
+           &mt ESC TAB  &kp Q      &kp W      &kp E      &kp R          &none   &mwh SCROLL_LEFT &mmvup &mwh SCROLL_RIGHT &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   Shift  │   A      │    S     │    D     │    F     │   │    ?     │  mm Left │  mm Down │ mm Right │    ?     │
-           &sk LSHIFT  &kp A      &kp S      &kp D      &kp F           &none    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none 
+           &sk LSHIFT  &kp A      &kp S      &kp D      &kp F           &none    &mmvlft &mmvdn &mmvrgt &none 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Control │   Z      │     X    │L & R clk │    C     │   │  ALT     │    ?     │  scr up  │  scr dn  │     ?    │
            &sk LCTL    &kp Z     &kp X   &DBCLK RCLK LCLK  &kp C      &kp RALT &mwh SCROLL_UP &mwh SCROLL_DOWN &none &none 
