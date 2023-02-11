@@ -162,7 +162,7 @@ cshift: caps_shift {
             label = "caps_shift";
             #binding-cells = <0>;
             tapping-term-ms = <100>;
-            bindings = <&kp LSHIFT>, <&kp CAPS>;
+            bindings = <&sk LSHIFT>, <&kp CAPS>;
         };
               
    };
