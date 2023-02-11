@@ -161,7 +161,7 @@ SHBK: Shift_Back {
             compatible = "zmk,behavior-mod-morph";
             label = "Shift_Back";
             #binding-cells = <0>;
-            bindings = <BSPC>, <SLASH>;
+            bindings = <&kp BSPC>, <&kp SLASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
