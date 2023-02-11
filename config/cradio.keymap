@@ -155,6 +155,15 @@ mmvrgt: Variable_Mouse_Move_Right {
             bindings = <&mmv MOVE_RIGHT>, <&mmv MOVE_RIGHT2>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+	
+// This is the mod-morph for adding the forward slash to SHIFT BACKSPACE
+SHBK: Shift_Back {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Shift_Back";
+            #binding-cells = <0>;
+            bindings = <BSPC>, <SLASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
 // This is the tap-dance behavior that lets me double tap shift to get a caps-lock effect
 cshift: caps_shift {
