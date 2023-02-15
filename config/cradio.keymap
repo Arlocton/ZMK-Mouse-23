@@ -262,10 +262,10 @@ keymap {
        &none &mwh SCROLL_LEFT &mmvup &mwh SCROLL_RIGHT &none         &none &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &kp TAB    &mmvlft    &mmvdn     &mmvrgt    &none           &none    &mkp LCLK    &mkp RCLK  &none      &SHBK
+          &kp TAB    &mmvlft    &mmvdn     &mmvrgt    &mkp LCLK           &none    &mkp LCLK    &mkp RCLK  &none      &SHBK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-         &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &none  &none     &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RET
+         &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &mkp RCLK  &none     &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                          &moto SHRT BASE &kp LALT     &kp LSHIFT &moto UTIL BASE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
