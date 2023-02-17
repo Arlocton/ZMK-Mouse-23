@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/mouse.h>
 
 // Re-defining the move speed of the mouse emulation so the default is high
-#define U_MOUSE_MOVE_MAX 1500
+#define U_MOUSE_MOVE_MAX 1750
 #undef MOVE_UP
 #undef MOVE_DOWN
 #undef MOVE_LEFT
@@ -31,7 +31,7 @@
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
 // Setting a custom second speed for mouse movement
-#define U_MOUSE_MOVE_MAX2 750
+#define U_MOUSE_MOVE_MAX2 900
 #define MOVE_UP2 MOVE_VERT(-U_MOUSE_MOVE_MAX2)
 #define MOVE_DOWN2 MOVE_VERT(U_MOUSE_MOVE_MAX2)
 #define MOVE_LEFT2 MOVE_HOR(-U_MOUSE_MOVE_MAX2)
@@ -157,23 +157,23 @@ mmvrgt: Variable_Mouse_Move_Right {
         };
 	
 // This is the mod-morph for adding the forward slash to SHIFT BACKSPACE
-SHBK: Shift_Back {
-            compatible = "zmk,behavior-mod-morph";
-            label = "Shift_Back";
-            #binding-cells = <0>;
-            bindings = <&kp BSPC>, <&kp SLASH>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
+/* SHBK: Shift_Back {
+*            compatible = "zmk,behavior-mod-morph";
+*            label = "Shift_Back";
+*            #binding-cells = <0>;
+*            bindings = <&kp BSPC>, <&kp SLASH>;
+*            mods = <(MOD_LSFT|MOD_RSFT)>;
+*        };
+*/
 // This is the tap-dance behavior that lets me double tap shift to get a caps-lock effect
-cshift: caps_shift {
-            compatible = "zmk,behavior-tap-dance";
-            label = "caps_shift";
-            #binding-cells = <0>;
-            tapping-term-ms = <100>;
-            bindings = <&sk LSHIFT>, <&kp CAPS>;
-        };
-              
+/* cshift: caps_shift {
+*            compatible = "zmk,behavior-tap-dance";
+*            label = "caps_shift";
+*            #binding-cells = <0>;
+*            tapping-term-ms = <100>;
+*            bindings = <&sk LSHIFT>, <&kp CAPS>;
+*        };
+*/              
    };
     
 
@@ -228,12 +228,12 @@ keymap {
             &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &mt APOS P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F (LGUI)│  G       │   │  H       │  J       │  K       │  L (:)   │ Backspace│
-            &kp A      &kp S      &kp D     &mt LGUI F &kp G          &kp H      &kp J      &kp K      &mt COLON L &SHBK
+            &kp A      &kp S      &kp D     &mt LGUI F &kp G          &kp H      &kp J      &kp K      &mt COLON L &kp BSPC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , (-)    │ . (!)    │  Enter (?)
             &kp Z      &kp X      &kp C      &kp V      &kp B         &kp N     &kp M &mt MINUS COMMA &mt EXCL DOT &mt QMARK RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                       &moto SHRT BASE &cshift      &kp SPACE  &moto UTIL NUM
+                                       &moto SHRT BASE &sk LSHIFT      &mt RCTRL SPACE  &moto UTIL NUM
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -245,7 +245,7 @@ keymap {
          &mt EXCL N1 &mt AT N2  &mt HASH N3 &mt DLLR N4 &mt PRCNT N5 &mt CARET N6 &mt AMPS N7 &mt STAR N8 &mt LPAR N9 &mt RPAR N0   
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &kp TAB  &kp CAPS  &mt UNDER MINUS  &mt LGUI DEL  &mt PLUS EQUAL &mt PIPE BACKSLASH &mt LBRC LBKT &mt RBRC RBKT &mt COLON SEMI  &SHBK 
+          &kp TAB  &kp CAPS  &mt UNDER MINUS  &mt LGUI DEL  &mt PLUS EQUAL &mt PIPE BACKSLASH &mt LBRC LBKT &mt RBRC RBKT &mt COLON SEMI  &kp BSPC 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
          &mt TILDE GRAVE    &kp TILDE 	&kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2 &kp MINUS &kp LALT &kp LESS_THAN &mt GREATER_THAN DQT  &mt QMARK RET   
@@ -259,15 +259,15 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-       &none &mwh SCROLL_LEFT &mmvup &mwh SCROLL_RIGHT &none         &none &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
+       &none &mwh SCROLL_LEFT &mmvup &mwh SCROLL_RIGHT &kp DEL         &none &kp LC(LS(TAB)) &kp LC(TAB) &kp LA(TAB) &kp LS(LG(S)) 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &kp TAB    &mmvlft    &mmvdn     &mmvrgt    &mkp LCLK           &none    &mkp LCLK    &mkp RCLK  &none      &SHBK
+          &kp TAB    &mmvlft    &mmvdn     &mmvrgt    &mkp LCLK           &none    &mkp LCLK    &mkp RCLK  &kp LCTRL    &kp BSPC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
          &kp LSHIFT &mkp RCLK &mwh SCROLL_UP &mwh SCROLL_DOWN &mkp RCLK  &none     &kp LA(LEFT)  &kp LA(RIGHT)  &none &kp RET
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                         &moto SHRT BASE &kp LALT     &kp LSHIFT &moto UTIL BASE
+                                         &moto SHRT BASE &sk LSHIFT  &mt LALT SPACE &moto UTIL BASE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -276,15 +276,15 @@ keymap {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          |   │          │          │          │          │          |
-            &none     &kp C_PREV  &kp C_PP   &kp C_NEXT &none           &trans     &trans     &trans      &trans     &trans
+           &kp LC(A)     &kp C_PREV  &kp C_PP   &kp C_NEXT &none           &trans     &trans     &trans      &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-             &none    &none &kp C_VOL_DN &kp C_VOL_UP  &kp C_MUTE       &trans     &trans     &trans      &trans     &trans
+           &kp LC(C) &kp LC(V) &kp C_VOL_DN &kp C_VOL_UP  &kp C_MUTE       &trans     &trans     &trans      &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &none      &none       &kp C_RW  &kp C_FF   &none           &trans     &trans     &trans     &trans     &trans
+            &kp LC(Z)   &kp LC(Y)  &kp C_RW  &kp C_FF   &none           &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &none     &trans         &trans     &none
+                                             &none     &kp LCTRL         &trans     &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -296,10 +296,10 @@ keymap {
             &trans     &trans     &trans      &trans     &trans        &kp LC(T)     &kp F5      &kp UP      &kp LC(LA(TAB))      &none      
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans      &trans     &trans       &kp LC(W)       &kp LEFT   &kp DOWN  &kp RIGHT   &SHBK      
+            &trans     &trans     &trans      &trans     &trans       &kp LC(W)       &kp LEFT   &kp DOWN  &kp RIGHT   &kp BSPC      
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans      &trans     &trans       &kp LC(LS(T))      &none      &none      &none      &kp RET      
+            &trans     &trans     &trans      &trans     &trans       &kp LC(LS(T))      &none      &none  &kp SLASH  &kp RET      
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                               &none      &none         &kp SPACE     &none                           
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
